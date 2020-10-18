@@ -1,0 +1,76 @@
+package main;
+
+import java.util.Scanner;
+
+public class Selezione_Esercizio_01 
+{
+	public static void main(String[] args) 
+	{
+		/* Chiedere all'utente:
+		 * 	- eta
+		 * 	- luogo di residenza
+		 *  - professione
+		 *  - donatore sangue
+		 *  Il costo del biglietto cinema è 10 euro
+		 *  Se eta =< 5 || => 70 il biglietto del cinema è gratutio.
+		 *  Se è residente a Brescia il costo del biglietto è 5 euro.
+		 *  Se è insegnante o studente ha sconto di 2 euro
+		 */
+		
+		
+		Scanner tastiera = new Scanner(System.in);
+		
+		// Dichiarazione variabili
+		int eta, costoBiglietto;
+		String cittaResidenza, professione, donatore;
+		
+		costoBiglietto = 10;
+		
+		// Inizializzazione
+		
+		System.out.println("Il biglietto per il cinema costa di solito 10 euro. Vediamo se hai diritto a degli sconti.");
+		
+		System.out.println("Qual è la tua età?");
+		eta = Integer.parseInt(tastiera.nextLine());
+		
+		System.out.println("Bene, hai " + eta + " anni. Qual è il tuo luogo di residenza?");
+		cittaResidenza = tastiera.nextLine();
+		
+		System.out.println("Bene, hai " + eta + " anni e vivi a " + cittaResidenza + ". Ora dimmi qual è la tua professione!");
+		professione = tastiera.nextLine();
+		
+		System.out.println("Ricapitoliamo: hai " + eta + " anni, vivi a " + cittaResidenza + " e di professione fai " + professione + 
+				". Per ultima cosa, sei un donatore di sangue? Rispondi con si o no.");
+		donatore = tastiera.nextLine();
+		
+		// Verifichiamo le condizioni
+		
+		if(eta <= 5 || eta >= 70)
+			costoBiglietto = 0;
+		else {
+			if(cittaResidenza.equalsIgnoreCase("Brescia"))
+				costoBiglietto = 5;
+			else {
+				if(professione.equalsIgnoreCase("insegnante") || professione.equalsIgnoreCase("studente"))
+					costoBiglietto= costoBiglietto -2;
+			}
+			if(donatore.equalsIgnoreCase("si"))
+				costoBiglietto = costoBiglietto -1;
+		}
+		
+		// Output
+		
+		System.out.println("Vista la tua risposta, devi pagare " + costoBiglietto + "€");
+		
+		tastiera.close();
+		
+		
+		
+			
+		
+		
+		
+		
+		
+	}
+}

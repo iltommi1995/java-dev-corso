@@ -1,0 +1,34 @@
+package main;
+
+import java.util.Scanner;
+
+public class GeometriaInput 
+{
+	public static void main(String[] args) 
+	{
+		// Chiedere all'utente come si chiama
+		// Chiedere all'utente la misura della base e 
+		// dell'altezza del rettangolo. 
+		// Calcolare e stampare la misura dell'area
+		
+		// Dichiarazione
+		
+		Scanner tastiera;
+		String nomeUtente;
+		double baseRettangolo, area;
+		int altezzaRettangolo;
+		String risposta;
+		
+		// Inizializzazione
+		
+		tastiera = new Scanner(System.in);
+		risposta = "";
+		
+		System.out.println("Come ti chiami?");
+		
+		nomeUtente =tastiera.nextLine();
+		
+		System.out.println("Come ti chiami?" + nomeUtente);
+		
+	}
+}

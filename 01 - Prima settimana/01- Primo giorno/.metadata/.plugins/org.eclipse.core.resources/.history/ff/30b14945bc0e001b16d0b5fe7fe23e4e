@@ -1,0 +1,10 @@
+package main;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		// Questo è un commento
+		System.out.println("Ciao mondo!");
+	}
+}

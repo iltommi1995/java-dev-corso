@@ -1,0 +1,13 @@
+package main;
+
+public class GeometriaInput 
+{
+	public static void main(String[] args) 
+	{
+		// Chiedere all'utente come si chiama
+		// Chiedere all'utente la misura della base e 
+		// dell'altezza del rettangolo. 
+		// Calcolare e stampare la misura dell'area
+		
+	}
+}

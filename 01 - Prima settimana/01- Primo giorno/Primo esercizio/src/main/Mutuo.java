@@ -1,0 +1,67 @@
+package main;
+
+public class Mutuo 
+{
+	public static void main(String[] args) 
+	{
+		// Calcolare il valore della rata di una casa sapendo che 
+		// la casa ha 3 stanze:
+		// - Salotto: quadrata;
+		// - Camera da letto: rettangolare;
+		// - Bagno: quadrata;
+		// Il valore totale del mutuo è dato dal valore totale al mq 
+		// per il numero di mq. 
+		// Una volta trovato il mutuo totale, dividetelo per il numero
+		// delle rate in cui volete suddividere il costo.
+		// Stampate in console SOLO:
+		// - Metri quadri totali;
+		// - Costo al metro quadro;
+		// - Valore del mutuo;
+		// - Valore della singola rata
+		// Lato salotto (4), lati camera da letto (5, 4), lato bagno (3)
+		// valore al mq (3000 euro), num rate (24).
+		
+		double latoSalotto;
+		double lato1Camera;
+		double lato2Camera;
+		double latoBagno;
+		double areaSalotto;
+		double areaCamera;
+		double areaBagno;
+		double numRate;
+		
+		// Cose da stampare
+		double valMq;
+		double mqTot;
+		double mutuo;
+		double rataMutuo;
+		
+		// Calcolo mq
+		
+		latoSalotto = 4;
+		areaSalotto = latoSalotto * latoSalotto;
+		lato1Camera = 5;
+		lato2Camera = 4;
+		areaCamera = lato1Camera * lato2Camera;
+		latoBagno = 3;
+		areaBagno = latoBagno * latoBagno;
+		mqTot = areaSalotto + areaCamera + areaBagno;
+		
+		System.out.println("Il numero di mq totali è: " + mqTot);
+		
+		// costo al mq
+		
+		valMq = 3000;
+		mutuo = valMq * mqTot;
+		
+		System.out.println("Il valore al mq è: " + valMq + "$");
+		System.out.println("Il valore totale del mutuo è: " + mutuo + "$");
+		
+		// valore singola rata
+		
+		numRate = 24;
+		rataMutuo = mutuo / numRate;
+		
+		System.out.println("La singola rata del mutuo è: " + rataMutuo + "$");
+	}
+}

@@ -1,0 +1,71 @@
+package main;
+
+import java.util.Scanner;
+
+public class MutuoInput 
+{
+	public static void main(String[] args) 
+	{
+		// 1 - Chiedere a utente la misura delle stanze:
+		//		- Camera da letto: quadrata
+		//  	- Salotto: rettangolare
+		//		- Bagno: quadrato
+		// 2- Calcolare i mq
+		// 3- Impostare un costo a mq e calcolare il costo totale del mutuo
+		// 4- Stampare il costo totale e chiedere all'utente numero rate
+		// 5- Stampare valore singola rata
+		
+		
+		Scanner tastiera;
+		
+		double latoSalotto;
+		double latoCamera;
+		double latoBagno;
+		double areaSalotto;
+		double areaCamera;
+		double areaBagno;
+		double numRate;
+		double valMq;
+		double mqTot;
+		
+		// Cose da stampare
+		
+		
+		double mutuo;
+		double rataMutuo;
+		
+		
+		tastiera = new Scanner(System.in);
+		
+		System.out.println("Calcoliamo quanto vale la tua casa, inserisci la lunghezza del lato della tua camera quadrata:");
+		latoCamera= Double.parseDouble(tastiera.nextLine());
+		
+		// Calcolo mq
+		
+		latoSalotto = 4;
+		areaSalotto = latoSalotto * latoSalotto;
+		lato1Camera = 5;
+		lato2Camera = 4;
+		areaCamera = lato1Camera * lato2Camera;
+		latoBagno = 3;
+		areaBagno = latoBagno * latoBagno;
+		mqTot = areaSalotto + areaCamera + areaBagno;
+		
+		System.out.println("Il numero di mq totali è: " + mqTot);
+		
+		// costo al mq
+		
+		valMq = 3000;
+		mutuo = valMq * mqTot;
+		
+		System.out.println("Il valore al mq è: " + valMq + "$");
+		System.out.println("Il valore totale del mutuo è: " + mutuo + "$");
+		
+		// valore singola rata
+		
+		numRate = 24;
+		rataMutuo = mutuo / numRate;
+		
+		System.out.println("La singola rata del mutuo è: " + rataMutuo + "$");
+	}
+}

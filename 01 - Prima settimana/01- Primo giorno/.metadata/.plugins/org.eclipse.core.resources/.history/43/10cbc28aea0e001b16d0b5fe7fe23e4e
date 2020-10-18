@@ -1,0 +1,42 @@
+package main;
+
+public class Geometria 
+{
+	public static void main(String[] args) 
+	{
+		// Calcolo area quadrato con lato 5
+		int latoQuadrato;
+		int areaQuadrato;
+		latoQuadrato = 5;
+		areaQuadrato = latoQuadrato * latoQuadrato;
+		System.out.println("L'area del quadrato di lato " + latoQuadrato + " è: " + areaQuadrato);
+		
+		// Calcolo area rettaongolo con base 5 e altezza 2.5
+		int baseRettangolo;
+		double altezzaRettangolo;
+		double areaRettangolo;
+		baseRettangolo = 5;
+		altezzaRettangolo = 2.5;
+		areaRettangolo = baseRettangolo * altezzaRettangolo;
+		System.out.println("L'area del rettangolo di base " + baseRettangolo + " e altezza " + altezzaRettangolo + " è: " + areaRettangolo);
+		
+		// Calcolo area triangolo con base = 2* altezzaRettangolo, altezza = 1/2 latoQuadrato
+		double baseTriangolo;
+		double altezzaTriangolo;
+		double areaTriangolo;
+		baseTriangolo = 2 * altezzaRettangolo;
+		altezzaTriangolo = latoQuadrato / 2;
+		areaTriangolo = (baseTriangolo * altezzaTriangolo) / 2;
+		System.out.println("L'area del triangolo di base " + baseTriangolo + " e altezza " + altezzaTriangolo + " è: " + areaTriangolo);
+				
+		// Calcolo area cerchio con raggio = area del triangolo
+		double raggioCerchio;
+		double piGreco;
+		double areaCerchio;
+		raggioCerchio = areaTriangolo;
+		piGreco = 3.14;
+		areaCerchio = raggioCerchio * raggioCerchio * piGreco ;
+		System.out.println("L'area del cerchio di raggio " + raggioCerchio +" è: " + areaCerchio);
+						
+	}
+}

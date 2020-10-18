@@ -1,0 +1,20 @@
+package main;
+
+import java.util.Scanner;
+
+public class Selezione_IF_ELSE_02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner tastiera = new Scanner(System.in);
+		int eta;
+		String risposta;
+		
+		System.out.println("Quanti anni hai?");
+		eta = Integer.parseInt(tastiera.nextLine());
+		
+		
+		tastiera.close();
+	}
+
+}

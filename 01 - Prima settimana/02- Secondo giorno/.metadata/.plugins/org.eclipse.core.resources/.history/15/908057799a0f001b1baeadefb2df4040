@@ -1,0 +1,98 @@
+package main;
+
+import java.util.Scanner;
+
+public class GeometriaInput2 
+{
+	public static void main(String[] args) 
+	{
+		// Dichiarazione 
+		
+		Scanner tastiera;
+		String nome;
+		
+		// Inizializzo tastiera
+		
+		tastiera = new Scanner(System.in);
+		
+		System.out.println("Inserisci il tuo nome!");
+		nome =tastiera.nextLine();
+		
+		
+		// Calcolo area quadrato con lato 5
+		
+		double latoQuadrato, areaQuadrato, perimetroQuadrato;
+		String output1;
+		
+		System.out.println("Ciao " + nome + " calcoliamo l'area di un quadrato, inserisci la lunghezza del lato.");
+		latoQuadrato = Double.parseDouble(tastiera.nextLine());
+		
+		areaQuadrato = latoQuadrato * latoQuadrato;
+		perimetroQuadrato = latoQuadrato * 4;
+		
+		output1 = "L'area del quadrato di lato " + latoQuadrato + " è: " + areaQuadrato + ", il perimetro è " + perimetroQuadrato;
+		System.out.println(output1);
+		
+				
+		// Calcolo area rettaongolo con base 5 e altezza 2.5
+		
+		double baseRettangolo, altezzaRettangolo, areaRettangolo, perimetroRettangolo;
+		String output2;
+		
+		System.out.println("\n" + "Bene, " + nome + " ora calcoliamo l'area di un rettangolo, inserisci la lunghezza della base.");
+		baseRettangolo = Double.parseDouble(tastiera.nextLine());
+		
+		System.out.println("La base è lunga " + baseRettangolo + ", ora inserisci la lunghezza dell'altezza.");
+		altezzaRettangolo = Double.parseDouble(tastiera.nextLine());
+		
+		areaRettangolo = baseRettangolo * altezzaRettangolo;
+		perimetroRettangolo = (baseRettangolo + altezzaRettangolo) * 2;
+		
+		output2 = "L'area del rettangolo di base " + baseRettangolo + " e altezza " + altezzaRettangolo + " è: " + areaRettangolo + ", il perimetro è " + perimetroRettangolo;
+		System.out.println(output2);
+		
+				
+		// Calcolo area triangolo con base = 2* altezzaRettangolo, altezza = 1/2 latoQuadrato
+		
+		double baseTriangolo, altezzaTriangolo, areaTriangolo;
+		String output3;
+		
+		System.out.println("\n" + "Perfetto, " + nome + " passiamo all'area di un triangolo, inserisci la lunghezza della base.");
+		baseTriangolo = Double.parseDouble(tastiera.nextLine());
+		
+		System.out.println("\n" + "La base è lunga " + baseTriangolo + ", ora inserisci la lunghezza dell'altezza.");
+		altezzaTriangolo = Double.parseDouble(tastiera.nextLine());
+		
+		areaTriangolo = (baseTriangolo * altezzaTriangolo) / 2;
+		
+		output3 = "L'area del triangolo di base " + baseTriangolo + " e altezza " + altezzaTriangolo + " è: " + areaTriangolo;
+		System.out.println(output3);
+		
+						
+		// Calcolo area cerchio con raggio = area del triangolo
+		
+		double raggioCerchio, piGreco, areaCerchio, perimetroCerchio;
+		String output4;
+		
+		System.out.println("\n" + "Ok, " + nome + " come ultima cosa calcoliamo l'area di un cerchio, inserisci la lunghezza raggio.");
+		raggioCerchio = Double.parseDouble(tastiera.nextLine());
+		
+		piGreco = 3.14;
+		areaCerchio = raggioCerchio * raggioCerchio * piGreco ;
+		perimetroCerchio = 2 * piGreco * raggioCerchio;
+		
+		output4 = "L'area del cerchio di raggio " + raggioCerchio +" è: " + areaCerchio + ", il perimtro è " + perimetroCerchio;
+		System.out.println(output4);
+		
+		
+		// Output finale
+		
+		riepilogo = "\n" + "\n" + "Infine il riepilogo di tutto l'esercizio: " + "\n" + output1 + "\n" + output2 + "\n" + output3 + "\n" + output4;
+		System.out.println(riepilogo);
+		
+		
+		// Chiudo lettura input
+		
+		tastiera.close();
+	}
+}

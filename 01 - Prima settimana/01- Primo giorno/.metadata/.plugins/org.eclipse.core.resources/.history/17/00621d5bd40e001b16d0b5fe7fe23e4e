@@ -1,0 +1,15 @@
+package main;
+
+public class Variabili02 
+{
+	public static void main(String[] args) 
+	{
+		int numeroIntero;
+		double numeroDecimale;
+		
+		numeroIntero = 2;
+		numeroDecimale = 4.3;
+		
+		System.out.println(numeroIntero * numeroDecimale);
+	}
+}

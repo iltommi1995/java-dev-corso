@@ -1,0 +1,11 @@
+package main;
+
+public class RipassoStringhe 
+{
+	public static void main(String[] args) 
+	{
+		String titolo;
+		titolo = "Lost";
+		
+	}
+}

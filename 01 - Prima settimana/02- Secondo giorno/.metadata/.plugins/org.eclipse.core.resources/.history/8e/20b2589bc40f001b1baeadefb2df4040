@@ -1,0 +1,35 @@
+package main;
+
+import java.util.Scanner;
+
+public class Selezione_Esercizio_00 
+{
+	public static void main(String[] args) 
+	{
+		/* Chiedere all'utente l'anno di nascita
+		 * Calcolare l'età
+		 * Se è maggiorenne chiedegli cosa vuole da bere
+		 * Se sceglie la birra, il ticket è 3.5€
+		 * Se sceglie la coca cola, il ticket è 2.5€
+		 * Se sceglie il vino, il ticket è 5€
+		 * Stampare come risposta il valore del ticket
+		 * Se è minorenne stampare il messaggio per cui non può entrare
+		 * Stampare la risposta in caso sia maggiorenne o minorenne
+		 */
+		
+		// Dichiarazione
+		
+		Scanner tastiera = new Scanner(System.in);
+		
+		int annoNascita, eta;
+		String drink;
+		double ticket;
+		
+		// Inizializzazione
+		
+		System.out.println("Quanti anni hai?");
+		
+		System.out.println("Qual è la tua età?");
+		eta = Integer.parseInt(tastiera.nextLine());
+	}
+}

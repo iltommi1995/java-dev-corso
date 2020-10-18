@@ -1,0 +1,23 @@
+package main;
+
+public class Geometria 
+{
+	public static void main(String[] args) 
+	{
+		// Calcolo area quadrato con lato 5
+		int latoQuadrato;
+		int areaQuadrato;
+		latoQuadrato = 5;
+		areaQuadrato = latoQuadrato * latoQuadrato;
+		System.out.println("L'area del quadrato di lato 5 è: " + areaQuadrato);
+		
+		// Calcolo area rettaongolo con base 5 e altezza 2.5
+		int baseRettangolo;
+		double altezzaRettangolo;
+		double areaRettangolo;
+		baseRettangolo = 5;
+		altezzaRettangolo = 2.55;
+		areaRettangolo = baseRettangolo * altezzaRettangolo;
+		System.out.println(areaQuadrato);
+	}
+}

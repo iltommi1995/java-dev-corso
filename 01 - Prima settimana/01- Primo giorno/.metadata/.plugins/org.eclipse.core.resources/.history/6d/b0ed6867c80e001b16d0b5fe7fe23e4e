@@ -1,0 +1,14 @@
+package main;
+
+public class Matematica 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Benvenuto nella classe di matematica");
+		System.out.println("Esempio di somma: 10 + 7= " + (10 + 7));
+		System.out.println("Esempio di sottrazione: 10 - 7= " + (10 - 7));
+		System.out.println("Esempio di divisione: 10 / 7= " + (10 / 7));
+		System.out.println("Esempio di moltiplicazioene: 10 x 7= " + (10 * 7));
+		System.out.println("Esempio di moltiplicazioene: 100 / 10.0= " + (100 * 10.0));
+	}
+}

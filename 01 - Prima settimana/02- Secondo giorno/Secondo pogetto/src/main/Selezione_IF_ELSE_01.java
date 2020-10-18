@@ -1,0 +1,25 @@
+package main;
+
+import java.util.Scanner;
+
+public class Selezione_IF_ELSE_01 
+{
+	public static void main(String[] args) 
+	{
+		Scanner tastiera = new Scanner(System.in);
+		int eta;
+		String risposta;
+		
+		System.out.println("Indica la tua età in anni");
+		eta = Integer.parseInt(tastiera.nextLine());
+		
+		if(eta >= 18)
+			risposta = "maggiorenne";
+		else 
+			risposta = "NO";
+		
+		System.out.println(risposta);
+		
+		tastiera.close();
+	}
+}

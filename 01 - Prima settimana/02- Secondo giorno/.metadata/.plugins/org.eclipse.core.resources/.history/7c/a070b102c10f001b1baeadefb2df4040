@@ -1,0 +1,29 @@
+package main;
+
+import java.util.Scanner;
+
+public class Selezione_Esercizio_01 
+{
+	public static void main(String[] args) 
+	{
+		/* Chiedere all'utente:
+		 * 	- eta
+		 * 	- luogo di residenza
+		 *  - professione
+		 *  - donatore sangue
+		 *  Il costo del biglietto cinema è 10 euro
+		 *  Se eta =< 5 || => 70 il biglietto del cinema è gratutio.
+		 *  Se è residente a Brescia il costo del biglietto è 5 euro.
+		 *  Se è insegnante o studente ha sconto di 2 euro
+		 */
+		
+		
+		Scanner tastiera = new Scanner(System.in);
+		
+		// Dichiarazione variabili
+		int eta;
+		String cittaResidenza, professione, donatore;
+		
+		
+	}
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\duckf\Desktop\Corso Java\Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+805923083.index
+382629951.index
+2353972093.index
+871419216.index
+1187492324.index
+2208185827.index

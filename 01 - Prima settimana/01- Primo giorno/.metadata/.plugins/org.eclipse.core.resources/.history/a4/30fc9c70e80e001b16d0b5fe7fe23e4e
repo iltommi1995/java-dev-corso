@@ -1,0 +1,15 @@
+package main;
+
+public class Geometria 
+{
+	public static void main(String[] args) 
+	{
+		// Calcolo area quadrato con lato 5
+		int latoQuadrato;
+		int areaQuadrato;
+		latoQuadrato = 5;
+		areaQuadrato = latoQuadrato * latoQuadrato;
+		
+		System.out.println(areaQuadrato);
+	}
+}

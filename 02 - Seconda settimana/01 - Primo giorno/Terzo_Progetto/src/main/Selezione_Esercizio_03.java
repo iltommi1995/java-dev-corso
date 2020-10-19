@@ -37,7 +37,7 @@ public class Selezione_Esercizio_03
 		numPasseggeri = Integer.parseInt(tastiera.nextLine());
 		
 		// Calcolo
-		if(destinazione.equals("") || numPasseggeri == 0)
+		if(destinazione.equals("") || numPasseggeri <= 0)
 			System.out.println("Non hai inserito valori corretti.");
 		else {
 			if(destinazione.equalsIgnoreCase("londra"))

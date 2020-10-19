@@ -21,11 +21,13 @@ public class Selezione_Esercizio_01
 		// Dichiarazione variabili
 		int eta, costoBiglietto;
 		String cittaResidenza, professione, donatore;
+		
 		costoBiglietto = 10;
 		
 		// Verifichiamo le condizioni
 		
 		System.out.println("Il biglietto per il cinema costa di solito 10 euro. Vediamo se hai diritto a degli sconti.");
+		
 		System.out.println("Qual è la tua età?");
 		eta = Integer.parseInt(tastiera.nextLine());
 		
@@ -52,6 +54,7 @@ public class Selezione_Esercizio_01
 		// Output
 		
 		System.out.println("Vista la tua risposta, devi pagare " + costoBiglietto + "€");
+		
 		tastiera.close();
 	}
 }

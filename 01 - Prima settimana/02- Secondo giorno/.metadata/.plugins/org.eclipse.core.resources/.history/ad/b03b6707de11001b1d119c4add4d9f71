@@ -25,6 +25,7 @@ public class Selezione_Esercizio_00
 		String drink;
 		double ticket;
 		
+		
 		System.out.println("Quando sei nato?");
 		annoNascita = Integer.parseInt(tastiera.nextLine());
 		eta = 2020 - annoNascita;
@@ -32,10 +33,16 @@ public class Selezione_Esercizio_00
 		if(eta >= 18) {
 			System.out.println("Puoi bere. Cosa vuoi bere?");
 			drink = tastiera.nextLine();
+			if(
+					!drink.equalsIgnoreCase("birra") ||
+					!drink.equalsIgnoreCase("coca cola") ||
+					!drink.equalsIgnoreCase("vino"))
+				ticket = 8;
+			else
+				ticket = 10;
 			if(drink.equalsIgnoreCase("birra")) {
 				ticket = 3.5;
-			} else
-				ticket = 10;
+			}
 			if(drink.equalsIgnoreCase("coca cola")) {
 				ticket = 2.5;
 			}
@@ -43,7 +50,7 @@ public class Selezione_Esercizio_00
 				ticket = 5;
 			}
 	
-			System.out.println("Dovrai pagare " + ticket + "€");
+			System.out.println("Dovrai pagare" + ticket + "€");
 		} else { 
 			System.out.println("Non puoi bere!");
 		}

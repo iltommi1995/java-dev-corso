@@ -1,0 +1,15 @@
+Francia
+Parigi
+500
+Italia
+Roma
+700
+Spagna
+Madrid
+1000
+Portogallo
+Lisbona
+200
+Germania
+Berlino
+2000

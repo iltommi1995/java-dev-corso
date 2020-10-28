@@ -1,0 +1,6 @@
+Film,2001 Odissea nello spazio,Kubrick,Fantascienza,1968
+Fumetto,Watchmen,Alan Moore,fantascienza,350,1987
+Cd,Killers,Iron Maiden,Metal,20,1981
+Film,Tetsuo,Tsukamoto,Horror,1989
+Film,Tokyo Fist,Tsukamoto,Drammatico,1995
+Cd,Rage Against The Machine,Rage Against The Machine,Metal,10,1992

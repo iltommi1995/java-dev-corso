@@ -1,0 +1,6 @@
+Insegnante,George Martin,50,Italiano,1520
+Insegnante,John Tolkien,60,Matematica,1520
+Studente,Licia Troisi,30,7,5,5
+Studente,Colin McCallister,18,7,5,3
+Studente,Scott Summers,23,8,7,5
+Insegnante,Charles Xavier,45,Matematica,1400

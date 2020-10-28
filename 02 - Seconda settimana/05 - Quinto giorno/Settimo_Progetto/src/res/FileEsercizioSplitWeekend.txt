@@ -1,0 +1,7 @@
+Studente,Marty,McFly,4
+Studente,John,Smith,3
+Insegnante,Emmet,Brown,1450
+Studente,LeBron,James,2
+Insegnante,Luis,Armstrong,1230
+Insegnante,Caio,Tizio,5000
+Insegnante,Marco,Verdi,5000

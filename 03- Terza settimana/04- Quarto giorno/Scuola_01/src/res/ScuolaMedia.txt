@@ -1,0 +1,8 @@
+Studente,Marco,Rossi,M,13,3,7.5,6.4,8.6,7.5
+Insegnante,Luca,Verdi,M,60,Matematica,30
+Insegnante,Maria,Ghisoni,F,45,Inglese,19
+Studente,Giovanna,Bianchi,F,11,1,5,5,4,6
+Studente,Elena,Pellerani,F,12,2,7,5,6,5.5
+Insegnante,Tommaso,Frassinetti,M,30,Francese,5
+Studente,Matteo,Lazzari,M,14,3,4,5,7,6.7
+Insegnante,Giovanni,Marra,M,55,Italiano,24

@@ -1,0 +1,4 @@
+Studente,Scott,4
+Persona,Ororo
+Studente,James,3
+Persona,Charles

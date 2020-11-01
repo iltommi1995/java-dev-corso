@@ -1,0 +1,11 @@
+Film,Tokyo Fist,Azione,Shin'ya Tsukamoto,1995,87
+Film,Zodiac,Thriller,David Fincher,2007,162
+Film,C'era una volta a Hollywood,Commedia,Quentin Tarantino,2019,161
+Film,Tenet,Fantascienza,Christopher Nolan,2020,150
+Libro,Il condominio,Fantascienza,Ballard,1975,190,si
+Libro,Il signore degli anelli - La compagnia dell'anello,Fantasy,Tolkien,1954,500,no
+Libro,Fu sera e fu mattina,Storico,Follett,2020,600,no
+Film,Arrival,Fantascienza,Denis Villeneuve,2016,116
+Film,Blade Runner 2049,Fantascienza,Denis Villeneuve,2017,163
+Libro,Neuromante,Fantascienza,Gibson,1984,254,si
+Libro,Hyperion,Fantascienza,Simmons,1989,367,no

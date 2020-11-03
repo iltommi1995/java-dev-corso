@@ -1,0 +1,12 @@
+Studente,Marco,Rossi,11,1E,5.5,5
+Studente,Luca,Bianchi,12,2A,6,4
+Studente,Laura,Verdi,13,3B,7,8
+Studente,Gianluca,Rovere,13,3B,5,7
+Studente,Marianna,Neri,11,1E,8,9
+Studente,Tommaso,Sole,12,2A,7,9
+Studente,Mirko,Prati,13,3B,6,6
+Studente,Matteo,Lazzari,12,2A,5,4
+Insegnante,Marco,Marravigna,60,Italiano,30
+Insegnante,Maria Teresa,Barbaccia,30,Matematica,4
+Insegnante,Luca,Bagnobianchi,50,Scienze,11
+Insegnante,Elisabetta,Marchi,33,Educazione fisica,7

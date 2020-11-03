@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 public class Terminale {
 	public String path = "C:\\Users\\duckf\\Desktop\\Corso Java\\Workspace\\03- Terza settimana\\05- Qinto giorno\\Negozio_LibriFilm\\src\\res\\CatalogoNegozio.txt";
+	public Scanner tastiera;
+	
+	
 	
 	public String output() throws FileNotFoundException {
 		Scanner tastiera = new Scanner(System.in);

@@ -31,6 +31,7 @@ public class MainNegozio {
 		
 	
 		System.out.println("\nCiao e alla prossima!");
+		tastiera.close();
 	}
 
 }

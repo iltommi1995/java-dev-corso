@@ -1,0 +1,11 @@
+Studente,Marco Rossi,16,3A,5,7
+Studente,Luca Bianchi,16,3A,8,9
+Studente,Maria Verdi,16,3A,4,5
+StudErasmus,Matteo Lazzari,16,3A,7,6,8,9
+Studente,Alessandro Prati,18,5B,5,7
+StudErasmus,Michele Neri,18,5B,7,8,9,9
+Studente,Antonietta Maio,18,5B,7,8
+Studente,Marco Marra,18,5B,9,6
+StudErasmus,,18,5B,9,9,9,9
+Studente,Gianluca Rossi,16,3A,-3,8
+Studente,Anna Bianchi,16,3A,1000,7

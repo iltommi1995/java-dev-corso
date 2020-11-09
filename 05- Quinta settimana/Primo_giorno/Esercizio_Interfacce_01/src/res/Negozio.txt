@@ -1,0 +1,6 @@
+Alien,10
+Blade Runner,15
+Matrix,12
+Zombi,10
+La casa del diavolo,13
+Creepshow,16

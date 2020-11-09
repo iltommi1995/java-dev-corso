@@ -1,0 +1,15 @@
+paziente,Pippo,Pancio,02-06-1999,Leptospirosi,SI
+paziente,Marco,Verdi,01-04-1940,Tumore,NO
+paziente,Lucia,Bianchi,05-06-1980,peste bubbonica,SI
+paziente,Marcello,Neri,12-07-1950,ebola,SI
+paziente,Matteo,Lazzari,04-12-1934,zombie,SI
+paziente,Laura,Marra,12-03-2000,raffreddore radioattivo,NO
+paziente,Davide,Mari,17-02-1990,influenza,NO
+paziente,Marco,Carta,14-10-1960,influenza,SI
+medico,Francesca,Bianco,15-04-1970,Ostetricia,149,2
+medico,Luca,Rossi,1-07-1960,Cardiologia,80,68
+medico,Antonio,Barbo,18-05-1978,chirurgia,200,198
+medico,Angelo,Luce,12-12-1950,neurologia,500,1
+medico,Antonella,Magri,01-01-1985,pediatria,30,29
+medico,Giorgio,Vanni,02-02-1970,pediatria,100,99
+medico,Biaggio,Gialli,01-02-1950,chirurgia,30,20

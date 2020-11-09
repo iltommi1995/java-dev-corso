@@ -1,0 +1,9 @@
+Lasagna:10
+Pizza:8
+Insalata:4.5
+Pasta al sugo:6
+Pasta al ragu:7
+Risotto allo zafferano:7
+Ravioli in brodo:5
+Carbonara:7
+Cacio e pepe:10

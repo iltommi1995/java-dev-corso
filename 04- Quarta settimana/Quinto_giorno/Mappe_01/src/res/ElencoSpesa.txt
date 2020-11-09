@@ -1,0 +1,5 @@
+prodotto,prezzo,quantita,reparto
+Cheddar,2,10,Frigo
+Hamburger,1,10,Frigo
+Mela,0.5,20,Frutta e verdura
+Coca cola,1.5,1,Bibite

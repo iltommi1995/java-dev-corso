@@ -97,7 +97,7 @@ public class Scuola {
 	public String cerca(String nome) {
 		String ris = "";
 		for(Persona p : elencoPersone) {
-			if(p.getNome().equalsIgnoreCase(nome))
+			if(p.getNome().toLowerCase().contains(nome))
 				ris += p.toString() + "\n";
 		}
 		ris += ris.length() == 0 ? "Non esiste uno studente con quel nome" : "";
@@ -119,6 +119,74 @@ public class Scuola {
 			}
 		}
 		return media/counter;
+	}
+	
+	public String esito(int scelta) {
+		String ris = "";
+		
+		switch(scelta) {
+			case 1: 
+				ris = "\nECCO L'ELENCO DEGLI STUDENTI BOCCIATI:\n\n";
+				for(Persona p : elencoPersone) {
+					if(p.esito().equalsIgnoreCase("bocciato")) 
+						ris += p.toString() + "\n";
+				}
+			break;
+			case 2: 
+				ris = "ECCO L'ELENCO DEGLI STUDENTI PROMOSSI:\n";
+				for(Persona p : elencoPersone) {
+					if(p.esito().equalsIgnoreCase("promosso")) 
+						ris += p.toString() + "\n";
+				}
+			break;
+			default:
+				ris = "\nLa scelta da te selezionata non è disponibile!";
+		}
+		
+		return ris;
+	}
+	
+	public String esito(int classe, int scelta) {
+		String classeScelta;
+		if(classe == 1) 
+			classeScelta = "3A";
+		else if(classe == 2)
+			classeScelta = "5B";
+		else
+			classeScelta = "La classe da te scelta non è disponibile";
+		String ris = "";
+		
+		switch(scelta) {
+			case 1: 
+				ris = "\nECCO L'ELENCO DEGLI STUDENTI BOCCIATI:\n\n";
+				if(classeScelta.length() > 2)
+					ris = classeScelta;
+				else {
+					for(Persona p : elencoPersone) {
+						Studente pi = (Studente) p;
+						if(p.esito().equalsIgnoreCase("bocciato") && pi.getClasse().equalsIgnoreCase(classeScelta)) {
+							ris += p.toString() + "\n";
+						}
+					}
+				}
+			break;
+			case 2: 
+				ris = "ECCO L'ELENCO DEGLI STUDENTI PROMOSSI:\n";
+				if(classeScelta.length() > 2)
+					ris = classeScelta;
+				else {
+					for(Persona p : elencoPersone) {
+						Studente pi = (Studente) p;
+						if(p.esito().equalsIgnoreCase("promosso") && pi.getClasse().equalsIgnoreCase(classeScelta)) 
+							ris += p.toString() + "\n";
+					}
+				}
+			break;
+			default:
+				ris = "\nLa scelta da te selezionata non è disponibile!";
+		}
+		
+		return ris;
 	}
 	
 	

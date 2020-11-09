@@ -35,6 +35,7 @@ public class Main {
 		Scanner tastiera = new Scanner(System.in);
 		Terminale terminal = new Terminale(tastiera);
 		System.out.println(terminal.output());
+		tastiera.close();
 		
 	}
 

@@ -1,0 +1,4 @@
+autore,titolo,nPagine,genere
+Licia Troisi,Cronache del mondo emerso,300,Fantasy
+William Gibson,Il neuromante,315,Fantascienza
+Pilip K. Dick,Blade Runner,350,Fantascienza

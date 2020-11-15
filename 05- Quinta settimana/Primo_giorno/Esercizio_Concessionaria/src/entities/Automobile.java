@@ -62,7 +62,7 @@ public class Automobile extends Prodotto
 	
 	// Metodi Automobile
 	
-	public boolean patente() {
+	public boolean potente() {
 		return (cilindrata > 2000 && super.famoso()) ? true : false;
 	}
 	
@@ -78,10 +78,25 @@ public class Automobile extends Prodotto
 	@Override
 	public double prezzo() {
 		double prezzo = 20000;
-		prezzo += eta() >= 5 ? -5000 : 0;
+		prezzo += eta() >= 5 ? -500 : 0;
 		prezzo += eta() >= 10 ? -1000 : 0;
 		prezzo += eta() >= 15 ? -2000 : 0;
 		
 		return prezzo;
+	}
+	
+	// ToString Automobile
+	
+	public String toString() {
+		return 	super.toString()																+
+				"--- Anno di immatricolazione: "	+	annoImmatricolazione		+	"\n"	+
+				"--- Cilindrata: "					+	cilindrata					+	"\n"	+
+				"--- Velocità massima: "			+	velocitaMax					+	"\n"	+
+				"--- Consumo medio al km: "			+	consumoMedioAKm				+	"\n"	+
+				"--- Litri carburante: "			+	litriCarburante				+	"\n"	+
+				"--- Auto potente: "				+	(potente() ? "si" : "no")	+	"\n"	+
+				"--- Età: "							+	eta()						+	"\n"	+
+				"--- Prezzo: "						+	prezzo()					+	"\n"	+
+				"--- Km percorribili: "				+	kmPercorribili()			+	"\n"	;
 	}
 }

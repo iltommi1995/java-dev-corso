@@ -1,12 +1,16 @@
+moto,222133,Ducati,Panigale,2015,14.9,15.5,SI
 moto,123141,Ducati,Diavel Carbon,2016,13.5,16,SI
 moto,459720,Kawasaki,Ninja 600 ZX-6R,1998,15.5,18,SI
 moto,106564,BMW,S 100 RR,2020,13.4,14.6,NO
-automobile,121212,FORD,Fiesta,2010,1500,23.50,40
-automobile,363636,FIAT,Croma,2000,1800,15.50,30
-automobile,454545,AUDI,A1,2020,2500,12.20,25
 moto,222133,Yamaha,Tracer09,2016,12.9,11.5,SI 
 moto,242133,Yamaha,Mt09,2009,10.9,9.5,NO
 moto,324193,Kawasaki,Ninja,2008,8,9,NO
 moto,262183,KTM,Ducke,2008,11.9,20.5,SI
-automobile,101010,Maserati,Rayo,2018,20,300,5.2,10
-automobile,10102020,Ferrari,488,3.9,340,1.2,20
+automobile,693480,FIAT,Panda,2009,1200,120,18.3,35
+automobile,234235,FIAT,Duna,1990,1301,150,14.7,35
+automobile,927164,Ferrari,Roma,2019,3855,320,8,9,80
+automobile,234235,Rolls Royce,Phantom,1968,6750,180,25.3,105
+automobile,793472,Chevrolet,Impala,1967,6490,130,24.2,90.9
+automobile,121212,FORD,Fiesta,2010,1500,170,23.50,40
+automobile,363636,FIAT,Croma,2000,1800,160,15.50,30
+automobile,454545,AUDI,A1,2020,2500,150,12.20,25

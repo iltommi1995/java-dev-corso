@@ -1,0 +1,15 @@
+1,1980,130,Shining,horror,Jack Nicholson:actor-Shelley Duvall:actress-Stanley Kubrick:director,100,si
+2,1996,140,Space Jam,animazione,Michael Jordan:actor-Kath Soucie:actress-Joe Pytka:director,60,si
+3,2008,232,Il cavaliere oscuro,action,Christian Bale:actor-Maggie Gyllienhaal:actress-Christopher Nolan:director,30,no
+4,2014,223,John Wick,action,Keanu Reeves:actor-Adrianne Palicki:actress-Chad Stahelski:director,69,si
+5,1997,314,Titanic,drama,Leonardo DiCaprio:actor-Kate Winslet:actress-James Cameron:director,99,si
+6,1992,67,Tetsuo,horror,Renji Ishibashi:actor-Kei Fujiwara:actress-Shinya Tsukamoto:director,40,no
+7,1995,87,Tokyo Fist,action,Naoto Takenaka:actor- :actress-Shinya Tsukamoto:director,50,no
+8,1955,93,La morte corre sul fiume,drama,Robert Mitchum:actor-Lillian Gish:actress-Charles Laughton:director,55,no
+9,2019,120,Portrait de la jeune fille en feu,drama, :actor-Adele Haenel:actress- :director,90,si
+10,1995,123,Cyclo,drama,Tony Leung Chiu Wai:actor-Tran Nu Yen Khe:actress- :director,65,no
+11,2001,208,La compagnia dell'anello,fantasy,Viggo Mortensen:actor-Liv Tyler:actress-Peter Jackson:director,100,si
+12,2007,104,Io sono leggenda,fantasy,Will Smith:actor- :actress-Francis Lawrence:director,70,si
+13,1950,112,Giungla d'asfalto,drama,Sterling Hayden:actor-Marilyn Monroe:actress-John Huston:director,90,no
+14,1960,109,Psyco,giallo,Anthony Perkins:actor-Janet Leigh:actress-Alfred Hitchcock:director,98,si
+15,1980,133,The blues brothers,musical,Dan Aykroyd:actor-Kathleen Freeman:actress-John Landis:director,85,no

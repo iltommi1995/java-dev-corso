@@ -1,0 +1,17 @@
+pc,1,Lenovo,i5,ssd,512,16
+pc,2,Asus,i3,ssd,22,4
+pc,3,Asus,i5,hdd,256,16
+pc,4,Apple,i5,hdd,1024,8
+pc,5,Lenovo,i5,ssd,512,32
+pc,6,Hp,i3,hdd,1024,16
+pc,7,Acer,i7,ssd,512,8
+pc,8,Hp,i3,hdd,512,8
+pc,9,Lenovo,i5,ssd,512,16
+pc,10,Apple,i7,hdd,512,32
+portatile,11,Acer,i5,hdd,661,8,13.3,7
+portatile,12,HP,i5,hdd,256,16,11.7,5
+portatile,13,HP,i3,ssd,512,16,11.4,5
+portatile,14,Huawei,i5,ssd,256,32,13.4,8
+portatile,15,Apple,i3,hdd,512,10,14.7,8
+portatile,16,HP,i7,ssd,1024,5,14.9,7
+portatile,17,Asus,i7,ssd,100,8,13.8,8

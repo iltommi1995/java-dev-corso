@@ -63,9 +63,27 @@ body {
     grid-auto-rows: 6vh;
 }
 
+.search{
+	grid-column: span 12;
+	grid-row: 1 / 2;
+}
+
 .col-3 {
 	grid-column: span 3;
 	grid-row: span 4;
 	background-color: wheat;
-	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.col-3-img {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.col-3-img img {
+	height: 100%;
 }

@@ -19,4 +19,8 @@
     <servlet-name>Imdb</servlet-name>
     <url-pattern>/serietv</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/films</url-pattern>
+  </servlet-mapping>
 </web-app>    

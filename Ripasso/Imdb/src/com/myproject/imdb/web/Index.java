@@ -29,8 +29,13 @@ public class Index extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
+    	DAOFilm df = DAOFilm.getInstance();
+    	List<Entity> film;
     	
     	String route = request.getRequestURI().split("/")[2].toLowerCase();
+    	String n = null;
+    	if(request.getRequestURI().split("/").length == 4)
+    		 n = request.getRequestURI().split("/")[3].toLowerCase();
     	String nav = gt.leggi("nav.html");
     	switch(route)
     	{
@@ -41,9 +46,17 @@ public class Index extends HttpServlet {
     			request.getRequestDispatcher("home.jsp").forward(request, response);
     			break;
     		case "film":
-    			DAOFilm df = DAOFilm.getInstance();
-    			
-    			List<Entity> film = df.read("select * from film inner join prodotti on film.id = prodotti.id");
+    			if(request.getParameter("titolo") == null)
+    			{
+    				film = df.read("select * from film inner join prodotti on film.id = prodotti.id");
+    				System.out.println("niente param");
+    			}
+    			else
+    			{
+    				film = df.read("select * from film inner join prodotti on film.id = prodotti.id where prodotti.titolo like ?", "%"+request.getParameter("titolo")+"%");
+    				System.out.println("dentro all'else");
+    			}
+    				
     			request.setAttribute("film", film);
     			request.setAttribute("nav", nav);
     			request.getRequestDispatcher("film.jsp").forward(request, response);
@@ -51,6 +64,11 @@ public class Index extends HttpServlet {
     		case "serietv":
     			request.setAttribute("nav", nav);
     			request.getRequestDispatcher("serietv.jsp").forward(request, response);
+    			break;
+    		case "films":
+    			film = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = ?", request.getParameter("fi"));
+    			request.setAttribute("film", film);
+    			request.getRequestDispatcher("films.jsp").forward(request, response);
     			break;
     	}
     	

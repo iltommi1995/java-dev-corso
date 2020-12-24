@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+
+  <servlet>
+    <servlet-name>Imdb</servlet-name>
+    <servlet-class>com.myproject.imdb.web.Index</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/film</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/serietv</url-pattern>
+  </servlet-mapping>
+</web-app>    

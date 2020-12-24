@@ -38,9 +38,9 @@ public class DAOProdotto implements IDAO
 
 	@Override
 	public boolean create(Entity e) {
-		String query = "insert into prodotti(titolo, davedere, visto) values(?,?,?)";
+		String query = "insert into prodotti(titolo, davedere, visto, imgpath) values(?,?,?,?)";
 		Prodotto g = (Prodotto) e;
-		return db.update(query, g.getTitolo(), g.isDaVedere() == true ? 1+"" : 0+"", g.isVisto() == true ? 1+"" : 0+"");
+		return db.update(query, g.getTitolo(), g.isDaVedere() == true ? 1+"" : 0+"", g.isVisto() == true ? 1+"" : 0+"", g.getImgpath());
 	}
 
 	@Override
@@ -69,13 +69,13 @@ public class DAOProdotto implements IDAO
 
 	@Override
 	public boolean update(Entity e) {
-		String query = "update prodotti set titolo = ?, davedere = ?, visto = ? where id = ?";
+		String query = "update prodotti set titolo = ?, davedere = ?, visto = ?, imgpath = ? where id = ?";
 		Prodotto g = (Prodotto) e;
-		return db.update(query, g.getTitolo(), g.isDaVedere() == true ? 1+"" : 0+"", g.isVisto() == true ? 1+"" : 0+"", g.getId()+"");
+		return db.update(query, g.getTitolo(), g.isDaVedere() == true ? 1+"" : 0+"", g.isVisto() == true ? 1+"" : 0+"", g.getImgpath(), g.getId()+"");
 	}
 	
 	// Query
-	/*
+	
 	public List<Map<String,String>> prodottiPerAttore(int id)
 	{
 		String query = "select prodotti.* from prodotti inner join attoriprodotti on prodotti.id = attoriprodotti.idprodotto where attoriprodotti.idattore = ?";
@@ -92,5 +92,5 @@ public class DAOProdotto implements IDAO
 		}
 		
 		return ris;
-	}*/
+	}
 }

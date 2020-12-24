@@ -1,32 +1,46 @@
 package com.generation.aziendasql3.tests;
 
-import java.sql.Date;
-
-import com.generation.aziendasql3.dao.DAODipendenti;
-import com.generation.aziendasql3.entities.Dipendente;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Test1 {
-
-	public static void main(String[] args)
+	public static void main(String[] args) {
+		
+		pippo();
+		
+	}
+	
+	public static boolean primo(int param)
 	{
-		// Creo un dipendente su Java
-		
-		Dipendente d = new Dipendente(0, "Magico", 
-										Date.valueOf("2000-3-1"),
-										"M",
-										"Bergamo",
-										1890,
-										1
-										);
-		
-		// Provo a salvarlo sul database
-		
-		DAODipendenti dd = new DAODipendenti();
-		//dd.create(d);
-		
-		// Stampo la lista di dipendenti e verifico se quello nuovo è presente
-		
-		for(Dipendente dip : dd.elenco())
-			System.out.println(dip);
+		int count = 0;
+		for(int i = 2; i <= (param/2); i++)
+		{
+			if(param % i == 0)
+				count++;
+		}
+			
+		return count != 0 || param <= 1 ? false : true;
+	}
+	
+	public static List<Integer> listaInt(int... params)
+	{
+		List<Integer> l = new ArrayList<Integer>();
+		for(int i = 0; i < params.length; i++)
+			l.add(params[i]);
+		return l;
+	}
+	
+	public static void pippo(){
+		for(int i = 1; i <= 100; i++)
+		{
+		if(i%3== 0)
+			System.out.println(i + "   hello");
+		if(i%5==0)
+			System.out.println(i + "   world");
+		if(i%3 == 0 & i%5==0)
+			System.out.println(i + "   Errore");
+		}
 	}
 }

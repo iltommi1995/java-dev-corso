@@ -15,9 +15,9 @@ public class Film extends Prodotto
 	
 	public Film() {}
 
-	public Film(int id, String titolo, boolean daVedere, boolean visto, int idRegista, int durata, Date dataUscita,
+	public Film(int id, String titolo, boolean daVedere, boolean visto, String imgpath, int idRegista, int durata, Date dataUscita,
 			boolean oscar) {
-		super(id, titolo, daVedere, visto);
+		super(id, titolo, daVedere, visto, imgpath);
 		this.idRegista = idRegista;
 		this.durata = durata;
 		this.dataUscita = dataUscita;
@@ -54,7 +54,7 @@ public class Film extends Prodotto
 		return oscar;
 	}
 
-	public void setOscar(int oscar) {
-		this.oscar = oscar == 0 ? false : true;
+	public void setOscar(boolean oscar) {
+		this.oscar = oscar;
 	}
 }

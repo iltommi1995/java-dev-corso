@@ -68,16 +68,16 @@ public class Animale extends Entity
 		return pericoloso;
 	}
 
-	public void setPericoloso(int pericoloso) {
-		this.pericoloso = pericoloso == 0 ? false : true;
+	public void setPericoloso(boolean pericoloso) {
+		this.pericoloso = pericoloso;
 	}
 
 	public boolean isVaccinato() {
 		return vaccinato;
 	}
 
-	public void setVaccinato(int vaccinato) {
-		this.vaccinato = vaccinato == 0 ? false : true;
+	public void setVaccinato(boolean vaccinato) {
+		this.vaccinato = vaccinato;
 	}
 
 	public int getIdAddestratore() {

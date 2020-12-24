@@ -15,9 +15,9 @@ public class SerieTv extends Prodotto
 	
 	public SerieTv() {}
 
-	public SerieTv(int id, String titolo, boolean daVedere, boolean visto, Date dataInizio, Date dataFine,
+	public SerieTv(int id, String titolo, boolean daVedere, boolean visto, String imgpath, Date dataInizio, Date dataFine,
 			int numeroEpisodi, boolean bafta) {
-		super(id, titolo, daVedere, visto);
+		super(id, titolo, daVedere, visto, imgpath);
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 		this.numeroEpisodi = numeroEpisodi;
@@ -54,7 +54,7 @@ public class SerieTv extends Prodotto
 		return bafta;
 	}
 
-	public void setBafta(int bafta) {
-		this.bafta = bafta == 0 ? false : true;
+	public void setBafta(boolean bafta) {
+		this.bafta = bafta;
 	}
 }

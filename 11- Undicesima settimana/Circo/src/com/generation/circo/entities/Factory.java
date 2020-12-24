@@ -1,5 +1,6 @@
 package com.generation.circo.entities;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.generation.utility.entities.Entity;
@@ -48,5 +49,15 @@ public abstract class Factory
 		Entity ris = make(tipo);
 		ris.fromMap(riga);
 		return ris;
+	}
+	
+	public static Entity makeRequest(String tipo, Map<String,String[]> request)
+	{
+		Map<String,String> riga = new HashMap<String,String>();
+		
+		for(String name : request.keySet())
+			riga.put(name, request.get(name)[0]);
+		
+		return make(tipo,riga);
 	}
 }

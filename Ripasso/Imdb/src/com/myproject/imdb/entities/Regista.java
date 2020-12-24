@@ -15,9 +15,9 @@ public class Regista extends Persona
 	
 	public Regista() {}
 
-	public Regista(int id, String nome, String cognome, Date dob, String nazionalita, boolean oscarRegia,
+	public Regista(int id, String nome, String cognome, Date dob, String nazionalita, String imgpath, boolean oscarRegia,
 			boolean baftaRegia, List<Film> filmGirati) {
-		super(id, nome, cognome, dob, nazionalita);
+		super(id, nome, cognome, dob, nazionalita, imgpath);
 		this.oscarRegia = oscarRegia;
 		this.baftaRegia = baftaRegia;
 		this.filmGirati = filmGirati;
@@ -29,16 +29,16 @@ public class Regista extends Persona
 		return oscarRegia;
 	}
 
-	public void setOscarRegia(int oscarRegia) {
-		this.oscarRegia = oscarRegia == 0 ? false : true;
+	public void setOscarRegia(boolean oscarRegia) {
+		this.oscarRegia = oscarRegia;
 	}
 
 	public boolean isBaftaRegia() {
 		return baftaRegia;
 	}
 
-	public void setBaftaRegia(int baftaRegia) {
-		this.baftaRegia = baftaRegia == 0 ? false : true;
+	public void setBaftaRegia(boolean baftaRegia) {
+		this.baftaRegia = baftaRegia;
 	}
 
 	public List<Film> getFilmGirati() {

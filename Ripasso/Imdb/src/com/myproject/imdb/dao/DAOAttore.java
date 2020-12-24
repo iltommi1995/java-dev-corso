@@ -35,11 +35,11 @@ public class DAOAttore implements IDAO
 	@Override
 	public boolean create(Entity e) 
 	{
-		String query1 = "insert into persone(nome, cognome, dob, nazionalita) values(?,?,?,?)";
+		String query1 = "insert into persone(nome, cognome, dob, nazionalita, imgpath) values(?,?,?,?,?)";
 		String query2 = "insert into attori(id,oscarAttore, baftaAttore, scuolaRecitazione) values((select max(id) from persone),?,?,?)";
 		Attore a = (Attore) e;
 		return 
-			db.update(query1, a.getNome(), a.getCognome(), a.getDob()+"", a.getNazionalita())
+			db.update(query1, a.getNome(), a.getCognome(), a.getDob()+"", a.getNazionalita(), a.getImgpath())
 			&&
 			db.update(query2, a.isOscarAttore() == true ? 1+"" : 0+"", a.isBaftaAttore() == true ? 1+"" : 0+"", a.getScuolaRecitazione());
 	}
@@ -61,12 +61,12 @@ public class DAOAttore implements IDAO
 		List<Entity> ris = new ArrayList<Entity>();
 		List<Map<String,String>> tabella = db.rows(query, params);
 		
-		//DAOProdotto dp = DAOProdotto.getInstance();
+		DAOProdotto dp = DAOProdotto.getInstance();
 		
 		for(Map<String,String> riga : tabella)
 		{
 			Attore a = (Attore)  Factory.make("attore", riga);
-			//a.setFilmRecitati(dp.prodottiPerAttore(a.getId()));
+			a.setFilmRecitati(dp.prodottiPerAttore(a.getId()));
 			ris.add(a);
 		}
 		return ris;
@@ -75,12 +75,12 @@ public class DAOAttore implements IDAO
 	@Override
 	public boolean update(Entity e) 
 	{
-		String query1 = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ? where id = ?";
+		String query1 = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ?, imgpath = ? where id = ?";
 		String query2 = "update attori set oscarAttore = ?, baftaAttore = ?, scuolaRecitazione = ? where id = ?";
 
 		Attore a = (Attore) e;
 		return 
-			db.update(query1, a.getNome(), a.getCognome(), a.getDob()+"", a.getNazionalita(), a.getId()+"")
+			db.update(query1, a.getNome(), a.getCognome(), a.getDob()+"", a.getNazionalita(), a.getImgpath(), a.getId()+"")
 			&&
 			db.update(query2, a.isOscarAttore() == true ? 1+"" : 0+"", a.isBaftaAttore() == true ? 1+"" : 0+"", a.getScuolaRecitazione(), a.getId()+"");
 	}
@@ -91,14 +91,14 @@ public class DAOAttore implements IDAO
 	{
 		String query = "select persone.*, attori.* from attori inner join attoriprodotti on attori.id = attoriprodotti.idattore inner join persone on persone.id = attori.id where attoriprodotti.idprodotto = ?";
 		List<Map<String,String>> ris = new ArrayList<Map<String,String>>();
-		for(Entity e : read(query, id+""))
+		for(Map<String,String> e : db.rows(query, id+""))
 		{
 			Map<String,String> ma = new LinkedHashMap<String,String>();
 			if(e instanceof Attore)
 			{
-				ma.put("id", e.getId()+"");
-				ma.put("nome", ((Attore) e).getNome());
-				ma.put("cognome", ((Attore) e).getCognome());
+				ma.put("id", e.get("attori.id"));
+				ma.put("nome", e.get("attori.nome"));
+				//ma.put("cognome", ((Attore) e).getCognome());
 			}
 			ris.add(ma);
 		}

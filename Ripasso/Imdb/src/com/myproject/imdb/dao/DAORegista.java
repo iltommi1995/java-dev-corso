@@ -35,12 +35,12 @@ public class DAORegista implements IDAO
 	@Override
 	public boolean create(Entity e) 
 	{
-		String query1 = "insert into persone(nome, cognome, dob, nazionalita) values(?,?,?,?)";
+		String query1 = "insert into persone(nome, cognome, dob, nazionalita, imgpath) values(?,?,?,?,?)";
 		String query2 = "insert into registi(id, oscarRegia, baftaRegia) values((select max(id) from persone),?,?)";
 		
 		Regista r = (Regista) e;
 		return 
-			db.update(query1, r.getNome(), r.getCognome(), r.getDob()+"", r.getNazionalita())
+			db.update(query1, r.getNome(), r.getCognome(), r.getDob()+"", r.getNazionalita(), r.getImgpath())
 			&&
 			db.update(query2, r.isOscarRegia() == true ? 1+"" : 0+"", r.isBaftaRegia() == true ? 1+"" : 0+"");
 	}
@@ -74,11 +74,11 @@ public class DAORegista implements IDAO
 	@Override
 	public boolean update(Entity e) 
 	{
-		String query1 = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ? where id = ?";
+		String query1 = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ?, imgpath = ? where id = ?";
 		String query2 = "update registi set oscarRegia = ?, baftaRegia = ? where id = ?";
 		Regista r = (Regista) e;
 		return 
-			db.update(query1, r.getNome(), r.getCognome(), r.getDob()+"", r.getNazionalita(), r.getId()+"")
+			db.update(query1, r.getNome(), r.getCognome(), r.getDob()+"", r.getNazionalita(), r.getImgpath(), r.getId()+"")
 			&&
 			db.update(query2, r.isOscarRegia() == true ? 1+"" : 0+"", r.isBaftaRegia() == true ? 1+"" : 0+"", r.getId()+"");
 	}

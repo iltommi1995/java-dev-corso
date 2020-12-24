@@ -17,9 +17,9 @@ public class Attore extends Persona
 	
 	public Attore() {}
 
-	public Attore(int id, String nome, String cognome, Date dob, String nazionalita, boolean oscarAttore,
+	public Attore(int id, String nome, String cognome, Date dob, String nazionalita, String imgpath, boolean oscarAttore,
 			boolean baftaAttore, String scuolaRecitazione, List<Map<String,String>> filmRecitati) {
-		super(id, nome, cognome, dob, nazionalita);
+		super(id, nome, cognome, dob, nazionalita, imgpath);
 		this.oscarAttore = oscarAttore;
 		this.baftaAttore = baftaAttore;
 		this.scuolaRecitazione = scuolaRecitazione;
@@ -32,16 +32,16 @@ public class Attore extends Persona
 		return oscarAttore;
 	}
 
-	public void setOscarAttore(int oscarAttore) {
-		this.oscarAttore = oscarAttore == 0 ? false : true;
+	public void setOscarAttore(boolean oscarAttore) {
+		this.oscarAttore = oscarAttore;
 	}
 
 	public boolean isBaftaAttore() {
 		return baftaAttore;
 	}
 
-	public void setBaftaAttore(int baftaAttore) {
-		this.baftaAttore = baftaAttore == 0 ? false : true;
+	public void setBaftaAttore(boolean baftaAttore) {
+		this.baftaAttore = baftaAttore;
 	}
 
 	public String getScuolaRecitazione() {

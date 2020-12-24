@@ -12,6 +12,7 @@ public class Prodotto extends Entity
 	private String titolo;
 	private boolean daVedere;
 	private boolean visto;
+	private String imgpath;
 	private List<Map<String,String>> attoriPresenti;
 	private List<Genere> generi;
 	
@@ -19,11 +20,12 @@ public class Prodotto extends Entity
 	
 	public Prodotto() {}
 
-	public Prodotto(int id, String titolo, boolean daVedere, boolean visto) {
+	public Prodotto(int id, String titolo, boolean daVedere, boolean visto, String imgpath) {
 		super(id);
 		this.titolo = titolo;
 		this.daVedere = daVedere;
 		this.visto = visto;
+		this.imgpath = imgpath;
 	}
 	
 	// GETTERS & SETTERS
@@ -43,8 +45,8 @@ public class Prodotto extends Entity
 	// Modifico setter con boolean per far sì che interpreti i valori int 1 o 0 
 	// provenienti da MySQL
 
-	public void setDaVedere(int daVedere) {
-		this.daVedere = daVedere == 0 ? false : true;
+	public void setDaVedere(boolean daVedere) {
+		this.daVedere = daVedere;
 	}
 
 	public boolean isVisto() {
@@ -53,8 +55,8 @@ public class Prodotto extends Entity
 	
 	// Uguale a setDaVedere
 
-	public void setVisto(int visto) {
-		this.visto = visto == 0 ? false : true;
+	public void setVisto(boolean visto) {
+		this.visto = visto;
 	}
 
 	public List<Map<String,String>> getAttoriPresenti() {
@@ -71,5 +73,13 @@ public class Prodotto extends Entity
 
 	public void setGeneri(List<Genere> generi) {
 		this.generi = generi;
+	}
+
+	public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 }

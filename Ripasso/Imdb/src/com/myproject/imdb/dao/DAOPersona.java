@@ -34,10 +34,10 @@ public class DAOPersona implements IDAO
 	@Override
 	public boolean create(Entity e) 
 	{
-		String query = "insert into persone(nome, cognome, dob, nazionalita) values(?,?,?,?)";
+		String query = "insert into persone(nome, cognome, dob, nazionalita, imgpath) values(?,?,?,?,?)";
 		
 		Persona p = (Persona) e;
-		return db.update(query, p.getNome(), p.getCognome(), p.getDob()+"", p.getNazionalita());
+		return db.update(query, p.getNome(), p.getCognome(), p.getDob()+"", p.getNazionalita(), p.getImgpath());
 	}
 
 	@Override
@@ -62,9 +62,9 @@ public class DAOPersona implements IDAO
 	@Override
 	public boolean update(Entity e) 
 	{
-		String query = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ? where id = ?";
+		String query = "update persone set nome = ?, cognome = ?, dob = ?, nazionalita = ?, imgpath = ? where id = ?";
 		Persona p = (Persona) e;
-		return db.update(query, p.getNome(), p.getCognome(), p.getDob()+"", p.getNazionalita(), p.getId()+"");
+		return db.update(query, p.getNome(), p.getCognome(), p.getDob()+"", p.getNazionalita(), p.getImgpath(), p.getId()+"");
 	}
 	
 }

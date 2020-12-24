@@ -12,17 +12,19 @@ public class Persona extends Entity
 	private String cognome;
 	private Date dob;
 	private String nazionalita;
+	private String imgpath;
 	
 	// COSTRUTTORI
 	
 	public Persona() {}
 
-	public Persona(int id, String nome, String cognome, Date dob, String nazionalita) {
+	public Persona(int id, String nome, String cognome, Date dob, String nazionalita, String imgpath) {
 		super(id);
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dob = dob;
 		this.nazionalita = nazionalita;
+		this.imgpath = imgpath;
 	}
 	
 	// GETTERS & SETTERS
@@ -57,5 +59,13 @@ public class Persona extends Entity
 
 	public void setNazionalita(String nazionalita) {
 		this.nazionalita = nazionalita;
+	}
+
+	public String getImgpath() {
+		return imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 }

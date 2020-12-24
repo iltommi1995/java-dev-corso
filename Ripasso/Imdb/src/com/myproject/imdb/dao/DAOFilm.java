@@ -35,12 +35,12 @@ public class DAOFilm implements IDAO
 	@Override
 	public boolean create(Entity e) 
 	{
-		String query1 = "insert into prodotti(titolo, davedere, visto) values(?,?,?)";
+		String query1 = "insert into prodotti(titolo, davedere, visto, imgpath) values(?,?,?,?)";
 		String query2 = "insert into film(id, idRegista, durata, dataUscita, oscar) values((select max(id) from prodotti),?,?,?,?)";
 		
 		Film f = (Film) e;
 		return 
-			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"")
+			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getImgpath())
 			&&
 			db.update(query2, f.getIdRegista()+"", f.getDurata()+"", f.getDataUscita()+"", f.isOscar() == true ? 1+"" : 0+"");
 	}
@@ -74,11 +74,11 @@ public class DAOFilm implements IDAO
 	@Override
 	public boolean update(Entity e) 
 	{
-		String query1 = "update prodotti set titolo = ?, davedere = ?, visto = ? where id = ?";
+		String query1 = "update prodotti set titolo = ?, davedere = ?, visto = ?, imgpath = ? where id = ?";
 		String query2 = "update film set idRegista = ?, durata = ?, dataUscita = ?, oscar = ? where id = ?";
 		Film f = (Film) e;
 		return 
-			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getId()+"")
+			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getImgpath(), f.getId()+"")
 			&&
 			db.update(query2, f.getIdRegista()+"", f.getDurata()+"", f.getDataUscita()+"", f.isOscar() == true ? 1+"" : 0+"", f.getId()+"");
 	}

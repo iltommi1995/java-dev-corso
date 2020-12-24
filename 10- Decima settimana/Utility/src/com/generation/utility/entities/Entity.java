@@ -145,6 +145,12 @@ public abstract class Entity
 						case "date":
 							m.invoke(this, Date.valueOf(valore));
 						break;
+						case "boolean":
+							m.invoke(this, valore.equalsIgnoreCase("1") || valore.equalsIgnoreCase("true"));
+						break;
+						case "float":
+							m.invoke(Float.parseFloat(valore));
+							break;
 					}
 				} catch(Exception e)
 				{

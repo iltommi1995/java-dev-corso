@@ -8,7 +8,6 @@ import com.generation.utility.database.Database;
 import com.generation.utility.database.IDAO;
 import com.generation.utility.entities.Entity;
 import com.myproject.imdb.entities.Factory;
-import com.myproject.imdb.entities.Film;
 import com.myproject.imdb.entities.SerieTv;
 
 public class DAOSerieTv implements IDAO
@@ -37,11 +36,11 @@ public class DAOSerieTv implements IDAO
 	@Override
 	public boolean create(Entity e) 
 	{
-		String query1 = "insert into prodotti(titolo, davedere, visto) values(?,?,?)";
+		String query1 = "insert into prodotti(titolo, davedere, visto, imgpath) values(?,?,?,?)";
 		String query2 = "insert into serietv(id, dataInizio, dataFine, numeroEpisodi, bafta) values ((select max(id) from prodotti),?,?,?,?)";
 		SerieTv f = (SerieTv) e;
 		return 
-			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"")
+			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getImgpath())
 			&&
 			db.update(query2, f.getDataInizio()+"", f.getDataFine()+"", f.getNumeroEpisodi()+"", f.isBafta() == true ? 1+"" : 0+"");
 	}
@@ -78,11 +77,11 @@ public class DAOSerieTv implements IDAO
 	@Override
 	public boolean update(Entity e) 
 	{
-		String query1 = "update prodotti set titolo = ?, davedere = ?, visto = ? where id = ?";
+		String query1 = "update prodotti set titolo = ?, davedere = ?, visto = ?, imgpath = ? where id = ?";
 		String query2 = "update serietv set dataInizio = ?, dataFine = ?, numeroEpisodi = ?, bafta = ? where id = ?";
 		SerieTv f = (SerieTv) e;
 		return 
-			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getId()+"")
+			db.update(query1, f.getTitolo(), f.isDaVedere() == true ? 1+"" : 0+"", f.isVisto() == true ? 1+"" : 0+"", f.getImgpath(), f.getId()+"")
 			&&	
 			db.update(query2, f.getDataInizio()+"", f.getDataFine()+"", f.getNumeroEpisodi()+"", f.isBafta() == true ? 1+"" : 0+"", f.getId()+"");
 	}

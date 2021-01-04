@@ -16,9 +16,14 @@
 	<div class="container">
 	<div class="search">
 		<form action="film" method="get" id="searchmovie">
-		<input type="text" name="titolo" placeholder="cerca" onkeyup="submitForm()" />
-		<input type="submit" value="cerca">
+			<input type="text" name="titolo" placeholder="cerca" onkeyup="submitForm()" />
+			<input type="submit" value="cerca">
 		</form>
+	</div>
+	<div class="newMovie">
+		<a href="/Imdb/addfilm">
+			<img src="img/icons/addIcon.png" />
+		</a>
 	</div>
 	<c:forEach items="${film}" var="fi">
 		<div class="col-3">

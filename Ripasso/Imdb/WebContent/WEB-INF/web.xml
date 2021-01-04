@@ -23,4 +23,16 @@
     <servlet-name>Imdb</servlet-name>
     <url-pattern>/films</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/addfilm</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/newfilm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/adddirector</url-pattern>
+  </servlet-mapping>
 </web-app>    

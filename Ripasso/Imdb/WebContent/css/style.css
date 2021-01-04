@@ -63,9 +63,30 @@ body {
     grid-auto-rows: 6vh;
 }
 
+
 .search{
-	grid-column: span 12;
+	grid-column: span 6;
 	grid-row: 1 / 2;
+	display: flex;
+    align-items: center;
+}
+
+.newMovie{
+	grid-column: span 6;
+	grid-row: 1 / 2;
+	max-width: -moz-available;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.newMovie a {
+	height: 80%;
+	cursor: pointer;
+	transition: all, 0.3s;
+}
+
+.newMovie img:hover {
+	height: 90%;
 }
 
 .col-3 {
@@ -75,6 +96,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	max-width: -moz-available;
 }
 
 .col-3-img {

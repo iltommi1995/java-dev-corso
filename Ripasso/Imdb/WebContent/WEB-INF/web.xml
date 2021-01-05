@@ -39,4 +39,8 @@
     <servlet-name>Imdb</servlet-name>
     <url-pattern>/newdirector</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Imdb</servlet-name>
+    <url-pattern>/deletefilm</url-pattern>
+  </servlet-mapping>
 </web-app>    

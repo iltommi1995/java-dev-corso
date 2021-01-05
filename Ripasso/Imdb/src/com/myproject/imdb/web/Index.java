@@ -124,6 +124,13 @@ public class Index extends HttpServlet {
 	    			request.getRequestDispatcher("newfilm.jsp").forward(request, response);
     			}
     			break;
+    		case "deletefilm":
+    			if(df.delete(Integer.parseInt(request.getParameter("id"))))
+    			{
+    				System.out.println("Film eliminato");
+    				response.sendRedirect("film");
+    			}
+    			break;
     		case "adddirector":
     			if(request.getQueryString() != null)
     			{

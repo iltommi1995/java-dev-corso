@@ -19,6 +19,7 @@ body {
 	padding: 0 30px;
 	box-sizing: border-box;
 	background-color: white;
+	z-index: 1000;
 }
 
 .navLogo {
@@ -59,7 +60,8 @@ body {
     grid-template: repeat(12, 6vh) / repeat(12, 1fr);
     padding: 40px 20px;
     box-sizing: border-box;
-    grid-gap: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
     grid-auto-rows: 6vh;
 }
 
@@ -82,30 +84,91 @@ body {
 .newMovie a {
 	height: 80%;
 	cursor: pointer;
+	
+}
+
+.newMovie img {
+	height: 80%;
 	transition: all, 0.3s;
 }
 
 .newMovie img:hover {
-	height: 90%;
+	transform: rotate(90deg);
 }
 
 .col-3 {
 	grid-column: span 3;
 	grid-row: span 4;
-	background-color: wheat;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	max-width: -moz-available;
 }
 
+.col-3:hover > h4 a {
+	color: rgb(255, 171, 44);
+}
+
+@media screen and (max-width: 950px)
+{
+	.col-3 {
+		grid-column: span 4;	
+	}
+}
+
+@media screen and (max-width: 650px)
+{
+	.col-3 {
+		grid-column: span 6;	
+	}
+}
+
+@media screen and (max-width: 470px)
+{
+	.col-3 {
+		grid-column: span 12;	
+	}
+}
+
 .col-3-img {
 	height: 80%;
 	width: 100%;
-	display: flex;
-	justify-content: center;
+	text-align: center;
+	position: relative;
 }
 
-.col-3-img img {
+.delete {
+	height: fit-content;
+	position: absolute;
+    right: 15%;
+}
+
+.delete-icon {
+	height: 1.2em;
+	width: 1.2em;
+	transition: all 0.2s;
+}
+
+.delete-icon:hover {
+	transform: rotate(180deg);
+}
+
+.film-poster-img {
 	height: 100%;
+}
+
+.col-3-title {
+	width: fit-content;
+    margin: auto;
+}
+
+.col-3-title a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.08em;
+    transition: color 0.2s;
+}
+
+.col-3-title a:hover {
+	color: rgb(255, 171, 44);
 }

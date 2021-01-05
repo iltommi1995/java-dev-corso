@@ -50,7 +50,9 @@ public class DAOFilm implements IDAO
 	{
 		String query1 = "delete from prodotti where id = ?";
 		String query2 = "delete from film where id = ?";
-		return db.update(query2, id+"") && db.update(query1, id+"");
+		String query3 = "delete from attoriprodotti where idprodotto = ?";
+		String query4 = "delete from generiprodotti where idprodotto = ?";
+		return db.update(query3, id+"") && db.update(query4, id+"") && db.update(query2, id+"") && db.update(query1, id+"");
 	}
 
 	@Override

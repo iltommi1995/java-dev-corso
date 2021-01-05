@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ import com.myproject.imdb.dao.DAOGenere;
 import com.myproject.imdb.dao.DAORegista;
 import com.myproject.imdb.entities.Film;
 import com.myproject.imdb.entities.Genere;
+import com.myproject.imdb.entities.Regista;
 import com.mysql.jdbc.PreparedStatement;
 
 
@@ -83,46 +85,123 @@ public class Index extends HttpServlet {
     			data = dr.read("select * from registi inner join persone on registi.id = persone.id");
     			//System.out.println(request.getParameterValues("genere")[0] + " " + request.getParameterValues("genere")[1]);
     			request.setAttribute("registi", data);
+    			request.setAttribute("nav", nav);
     			request.setAttribute("generi", dg.read("select * from generi"));
     			request.getRequestDispatcher("formfilm.jsp").forward(request, response);
     			break;
     		case "newfilm":
     			if(request.getParameter("regista").equalsIgnoreCase("nuovoRegista"))
     			{
-    				
-    				response.sendRedirect("adddirector" +"?titolo="+request.getParameter("titolo"));
+    				response.sendRedirect("adddirector" +"?"+request.getQueryString());
     			}
     			else
     			{
-    			Film f = new Film(
-    								0, 
-    								request.getParameter("titolo"), 
-    								Boolean.parseBoolean(request.getParameter("vedere")), 
-    								Boolean.parseBoolean(request.getParameter("visto")), 
-    								request.getParameter("imgpath"), 
-    								Integer.parseInt(request.getParameter("regista")), 
-    								Integer.parseInt(request.getParameter("durata")), 
-    								Date.valueOf(request.getParameter("data")),
-    								Boolean.parseBoolean(request.getParameter("oscar"))
-    							);
-    			String risp = df.create(f) ? "Film aggiunto" : "Errore nella creazione del  film";
-    			request.setAttribute("risp", risp);
-    			data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = (select max(id) from film)");
-    			if(request.getParameterValues("genere") != null)
-    			{
-    				for(int i = 0; i < request.getParameterValues("genere").length; i++)
-    				{
-    					if(Config.DB.update("insert into generiprodotti(idprodotto,idgenere) values (?,?)", data.get(0).getId()+"", request.getParameterValues("genere")[i]))
-    						System.out.println("Generi aggiunti");
-    					else
-    						System.out.println("Problema ad aggiungere generi");
-    				}
-    			}
-    			request.getRequestDispatcher("newfilm.jsp").forward(request, response);
+	    			Film f = new Film(
+	    								0, 
+	    								request.getParameter("titolo"), 
+	    								Boolean.parseBoolean(request.getParameter("vedere")), 
+	    								Boolean.parseBoolean(request.getParameter("visto")), 
+	    								request.getParameter("imgpath"), 
+	    								Integer.parseInt(request.getParameter("regista")), 
+	    								Integer.parseInt(request.getParameter("durata")), 
+	    								Date.valueOf(request.getParameter("data")),
+	    								Boolean.parseBoolean(request.getParameter("oscar"))
+	    							);
+	    			String risp = df.create(f) ? "Film aggiunto" : "Errore nella creazione del  film";
+	    			request.setAttribute("risp", risp);
+	    			data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = (select max(id) from film)");
+	    			
+	    			if(request.getParameterValues("genere") != null)
+	    			{
+	    				for(int i = 0; i < request.getParameterValues("genere").length; i++)
+	    				{
+	    					if(Config.DB.update("insert into generiprodotti(idprodotto,idgenere) values (?,?)", data.get(0).getId()+"", request.getParameterValues("genere")[i]))
+	    						System.out.println("Generi aggiunti");
+	    					else
+	    						System.out.println("Problema ad aggiungere generi");
+	    				}
+	    			}
+	    			request.getRequestDispatcher("newfilm.jsp").forward(request, response);
     			}
     			break;
     		case "adddirector":
+    			if(request.getQueryString() != null)
+    			{
+    				String[] prova = request.getQueryString().split("&");
+        			request.setAttribute("prova", prova);
+    			}
+    			
     			request.getRequestDispatcher("formregista.jsp").forward(request, response);
+    			break;
+    		case "newdirector":
+    			if(request.getParameter("regista") != null)
+    			{
+    				// Aggiunge regista
+    				
+    				Regista r = new Regista(
+							0, 
+							request.getParameter("nome"), 
+							request.getParameter("cognome"), 
+							Date.valueOf(request.getParameter("dobregista")), 
+							request.getParameter("nazionalita"), 
+							request.getParameter("imgregista"), 
+							Boolean.parseBoolean(request.getParameter("oscarregia")), 
+							Boolean.parseBoolean(request.getParameter("baftarregia")), 
+							null
+						);
+    				String risp = dr.create(r) ? "Regista aggiunto" : "Errore nella creazione del regista";
+    			
+    				// Aggiunge film
+    				
+    				Film f = new Film(
+							0, 
+							request.getParameter("titolo").replace("+", " "), 
+							Boolean.parseBoolean(request.getParameter("vedere")), 
+							Boolean.parseBoolean(request.getParameter("visto")), 
+							request.getParameter("imgpath"), 
+							dr.read("select * from persone inner join registi on registi.id = persone.id where persone.id = (select max(id) from persone)").get(0).getId(), 
+							Integer.parseInt(request.getParameter("durata")), 
+							Date.valueOf(request.getParameter("data")),
+							Boolean.parseBoolean(request.getParameter("oscar"))
+						);
+					risp += df.create(f) ? "  Film aggiunto" : "   Errore nella creazione del  film";
+					
+					data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = (select max(id) from film)");
+					
+					if(request.getParameterValues("genere") != null)
+					{
+						for(int i = 0; i < request.getParameterValues("genere").length; i++)
+						{
+							if(Config.DB.update("insert into generiprodotti(idprodotto,idgenere) values (?,?)", data.get(0).getId()+"", request.getParameterValues("genere")[i]))
+								risp += "     Generi aggiunti";
+							else
+								risp += "     Problema ad aggiungere i generi";
+						}
+					}
+    				
+    				
+    				// Risposta finale
+    				
+    				request.setAttribute("risp", risp);
+    				request.getRequestDispatcher("newdirector.jsp").forward(request, response);
+    			}
+    			else
+    			{
+    				Regista r = new Regista(
+							0, 
+							request.getParameter("nome"), 
+							request.getParameter("cognome"), 
+							Date.valueOf(request.getParameter("dobregista")), 
+							request.getParameter("nazionalita"), 
+							request.getParameter("imgregista"), 
+							Boolean.parseBoolean(request.getParameter("oscarregia")), 
+							Boolean.parseBoolean(request.getParameter("baftarregia")), 
+							null
+						);
+    				String risp = dr.create(r) ? "Regista aggiunto" : "Errore nella creazione del regista";
+    				request.setAttribute("risp", risp);
+    				request.getRequestDispatcher("newdirector.jsp").forward(request, response);
+    			}
     			break;
     	}
     	

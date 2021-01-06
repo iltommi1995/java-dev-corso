@@ -28,12 +28,12 @@
 	<c:forEach items="${film}" var="fi">
 		<div class="col-3">
 			<div class="col-3-img">
-				<a href="/Imdb/films?fi=${fi.id}" class="film-poster">
+				<a href="/Imdb/singlefilm?fi=${fi.id}" class="film-poster">
 					<img src="${fi.imgpath}" class="film-poster-img" />
 				</a>
 				<a href="/Imdb/deletefilm?id=${fi.id}" class="delete"><img src="img/icons/xicon.png" class="delete-icon" /></a>
 			</div>
-				<h4 class="col-3-title"><a href="/Imdb/films?fi=${fi.id}">${fi.titolo}</a></h4>
+				<h4 class="col-3-title"><a href="/Imdb/singlefilm?fi=${fi.id}">${fi.titolo}</a></h4>
 		</div>
 	</c:forEach>
 	</div>

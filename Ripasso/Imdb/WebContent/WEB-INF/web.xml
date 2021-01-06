@@ -21,7 +21,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Imdb</servlet-name>
-    <url-pattern>/films</url-pattern>
+    <url-pattern>/singlefilm</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Imdb</servlet-name>

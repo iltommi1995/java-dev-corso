@@ -49,7 +49,6 @@ body {
 	color: rgb(192, 115, 0);
 }
 
-
 /* GRID */
 
 .container {
@@ -109,6 +108,10 @@ body {
 	color: rgb(255, 171, 44);
 }
 
+.col-3:hover > div.col-3-img a.film-poster img.film-poster-img {
+	height: 95%;
+}
+
 @media screen and (max-width: 950px)
 {
 	.col-3 {
@@ -155,6 +158,7 @@ body {
 
 .film-poster-img {
 	height: 100%;
+	transition: height 0.2s;
 }
 
 .col-3-title {

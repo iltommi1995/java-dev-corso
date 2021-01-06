@@ -14,8 +14,8 @@
 ${nav}
 	<div class="container">
 		<form action="newdirector" method="get">
-			<c:forEach items="${prova}" var="pr">
-				<input type="hidden" name=${pr.split("=")[0]} value=${pr.split("=")[1]}>
+			<c:forEach items="${film}" var="fi">
+				<input type="hidden" name=${fi.split("=")[0]} value=${fi.split("=")[1]}>
 			</c:forEach>
 			Nome: <input type="text" name="nome"/>
 			<br>

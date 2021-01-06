@@ -38,197 +38,57 @@ public class Index extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
+    	
     	DAOFilm df = DAOFilm.getInstance();
     	DAORegista dr = DAORegista.getInstance();
     	DAOGenere dg = DAOGenere.getInstance();
-    	List<Entity> data;
     	
     	String route = request.getRequestURI().split("/")[2].toLowerCase();
+    	
     	String n = null;
     	if(request.getRequestURI().split("/").length == 4)
     		 n = request.getRequestURI().split("/")[3].toLowerCase();
+    	
     	String nav = gt.leggi("nav.html");
     	switch(route)
     	{
+    		// Home page
     		case "home":
-    			
     			request.setAttribute("nav", nav);
-    			
-    			request.getRequestDispatcher("home.jsp").forward(request, response);
+    			request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
     			break;
+    			
+    		// Film CRUD
     		case "film":
-    			if(request.getParameter("titolo") == null)
-    			{
-    				data = df.read("select * from film inner join prodotti on film.id = prodotti.id");
-    				System.out.println("niente param");
-    			}
-    			else
-    			{
-    				data = df.read("select * from film inner join prodotti on film.id = prodotti.id where prodotti.titolo like ?", "%"+request.getParameter("titolo")+"%");
-    				System.out.println("dentro all'else");
-    			}
-    				
-    			request.setAttribute("film", data);
-    			request.setAttribute("nav", nav);
-    			request.getRequestDispatcher("film.jsp").forward(request, response);
+    			FilmResolver.film(request, response, nav, df);
     			break;
-    		case "serietv":
-    			request.setAttribute("nav", nav);
-    			request.getRequestDispatcher("serietv.jsp").forward(request, response);
-    			break;
-    		case "films":
-    			data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = ?", request.getParameter("fi"));
-    			request.setAttribute("film", data);
-    			request.getRequestDispatcher("films.jsp").forward(request, response);
+    		case "singlefilm":
+    			FilmResolver.singleFilm(request, response, nav, df);
     			break;
     		case "addfilm":
-    			data = dr.read("select * from registi inner join persone on registi.id = persone.id");
-    			//System.out.println(request.getParameterValues("genere")[0] + " " + request.getParameterValues("genere")[1]);
-    			request.setAttribute("registi", data);
-    			request.setAttribute("nav", nav);
-    			request.setAttribute("generi", dg.read("select * from generi"));
-    			request.getRequestDispatcher("formfilm.jsp").forward(request, response);
+    			FilmResolver.addFilm(request, response, nav, df, dr, dg);
     			break;
     		case "newfilm":
-    			if(request.getParameter("regista").equalsIgnoreCase("nuovoRegista"))
-    			{
-    				response.sendRedirect("adddirector" +"?"+request.getQueryString());
-    			}
-    			else
-    			{
-	    			Film f = new Film(
-	    								0, 
-	    								request.getParameter("titolo"), 
-	    								Boolean.parseBoolean(request.getParameter("vedere")), 
-	    								Boolean.parseBoolean(request.getParameter("visto")), 
-	    								request.getParameter("imgpath"), 
-	    								Integer.parseInt(request.getParameter("regista")), 
-	    								Integer.parseInt(request.getParameter("durata")), 
-	    								Date.valueOf(request.getParameter("data")),
-	    								Boolean.parseBoolean(request.getParameter("oscar"))
-	    							);
-	    			String risp = df.create(f) ? "Film aggiunto" : "Errore nella creazione del  film";
-	    			request.setAttribute("risp", risp);
-	    			data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = (select max(id) from film)");
-	    			
-	    			if(request.getParameterValues("genere") != null)
-	    			{
-	    				for(int i = 0; i < request.getParameterValues("genere").length; i++)
-	    				{
-	    					if(Config.DB.update("insert into generiprodotti(idprodotto,idgenere) values (?,?)", data.get(0).getId()+"", request.getParameterValues("genere")[i]))
-	    						System.out.println("Generi aggiunti");
-	    					else
-	    						System.out.println("Problema ad aggiungere generi");
-	    				}
-	    			}
-	    			request.getRequestDispatcher("newfilm.jsp").forward(request, response);
-    			}
+    			FilmResolver.newFilm(request, response, nav, df);
     			break;
     		case "deletefilm":
-    			if(df.delete(Integer.parseInt(request.getParameter("id"))))
-    			{
-    				System.out.println("Film eliminato");
-    				response.sendRedirect("film");
-    			}
+    			FilmResolver.deleteFilm(request, response, nav, df);
     			break;
-    		case "adddirector":
-    			if(request.getQueryString() != null)
-    			{
-    				String[] prova = request.getQueryString().split("&");
-        			request.setAttribute("prova", prova);
-    			}
     			
-    			request.getRequestDispatcher("formregista.jsp").forward(request, response);
+    		// Director CRUD
+    		case "adddirector":
+    			DirectorResolver.addDirector(request, response, nav);
     			break;
     		case "newdirector":
-    			if(request.getParameter("regista") != null)
-    			{
-    				// Aggiunge regista
-    				
-    				Regista r = new Regista(
-							0, 
-							request.getParameter("nome"), 
-							request.getParameter("cognome"), 
-							Date.valueOf(request.getParameter("dobregista")), 
-							request.getParameter("nazionalita"), 
-							request.getParameter("imgregista"), 
-							Boolean.parseBoolean(request.getParameter("oscarregia")), 
-							Boolean.parseBoolean(request.getParameter("baftarregia")), 
-							null
-						);
-    				String risp = dr.create(r) ? "Regista aggiunto" : "Errore nella creazione del regista";
+    			DirectorResolver.newDirector(request, response, nav, dr, df);
+    			break;
     			
-    				// Aggiunge film
-    				
-    				Film f = new Film(
-							0, 
-							request.getParameter("titolo").replace("+", " "), 
-							Boolean.parseBoolean(request.getParameter("vedere")), 
-							Boolean.parseBoolean(request.getParameter("visto")), 
-							request.getParameter("imgpath"), 
-							dr.read("select * from persone inner join registi on registi.id = persone.id where persone.id = (select max(id) from persone)").get(0).getId(), 
-							Integer.parseInt(request.getParameter("durata")), 
-							Date.valueOf(request.getParameter("data")),
-							Boolean.parseBoolean(request.getParameter("oscar"))
-						);
-					risp += df.create(f) ? "  Film aggiunto" : "   Errore nella creazione del  film";
-					
-					data = df.read("select * from film inner join prodotti on film.id = prodotti.id where film.id = (select max(id) from film)");
-					
-					if(request.getParameterValues("genere") != null)
-					{
-						for(int i = 0; i < request.getParameterValues("genere").length; i++)
-						{
-							if(Config.DB.update("insert into generiprodotti(idprodotto,idgenere) values (?,?)", data.get(0).getId()+"", request.getParameterValues("genere")[i]))
-								risp += "     Generi aggiunti";
-							else
-								risp += "     Problema ad aggiungere i generi";
-						}
-					}
-    				
-    				
-    				// Risposta finale
-    				
-    				request.setAttribute("risp", risp);
-    				request.getRequestDispatcher("newdirector.jsp").forward(request, response);
-    			}
-    			else
-    			{
-    				Regista r = new Regista(
-							0, 
-							request.getParameter("nome"), 
-							request.getParameter("cognome"), 
-							Date.valueOf(request.getParameter("dobregista")), 
-							request.getParameter("nazionalita"), 
-							request.getParameter("imgregista"), 
-							Boolean.parseBoolean(request.getParameter("oscarregia")), 
-							Boolean.parseBoolean(request.getParameter("baftarregia")), 
-							null
-						);
-    				String risp = dr.create(r) ? "Regista aggiunto" : "Errore nella creazione del regista";
-    				request.setAttribute("risp", risp);
-    				request.getRequestDispatcher("newdirector.jsp").forward(request, response);
-    			}
+    		// Serie Tv CRUD
+    		case "serietv":
+    			request.setAttribute("nav", nav);
+    			request.getRequestDispatcher("jsp/serietv.jsp").forward(request, response);
     			break;
     	}
-    	
     	System.out.println(request.getRequestURI());
-    	
-    	
-    	
-    	//response.sendRedirect(qui va messo il redirect);
-    	/*
-    	if(request.getRequestURI().equalsIgnoreCase("/Imdb/film"))
-    	{
-    		request.setAttribute("generi", li);
-        	request.getRequestDispatcher("prova.jsp").forward(request, response);
-    	}
-    	
-    	if(request.getRequestURI().equalsIgnoreCase("/Imdb/serie"))
-    	{
-        	request.getRequestDispatcher("serie.jsp").forward(request, response);
-    	}
-    	*/
-
     }
 }
